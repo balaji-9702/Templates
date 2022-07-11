@@ -1,17 +1,5 @@
 
-parameters:
-      - name: webapp
-        type: string
-        default: 'insight-webapp'
-      - name: apptype
-        type: string
-        default: 'webApp'
-      - name: azureSubscription
-        type: string
-        default: 'Free Trial (180be318-3bda-484b-9b28-27ffcbe8b622)'  
-      - name: artifact
-        type: string
-        default: 'drop' 
+
       
 
 steps:
