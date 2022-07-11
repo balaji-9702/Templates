@@ -5,12 +5,12 @@
 steps:
  - task: DownloadPipelineArtifact@2
    inputs:
-    artifact: ${{parameters.artifact}}
+    artifact: ${{variables.artifact}}
     path: $(build.artifactstagingdirectory)
  - task: AzureWebApp@1
    displayName: 'Azure Web App Deploy: insight-webapp'
    inputs:
-    azureSubscription: ${{parameters.azureSubscription}}
-    appType: ${{parameters.apptype}}
-    appName: ${{parameters.webapp}}
+    azureSubscription: ${{variables.azureSubscription}}
+    appType: ${{variables.apptype}}
+    appName: ${{variables.webapp}}
     package: $(build.artifactstagingdirectory)/**/*.zip
