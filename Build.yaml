@@ -1,0 +1,5 @@
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    arguments: '--configuration $(BuildConfiguration)'
+    projects: '$(solution)'
