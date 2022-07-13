@@ -18,6 +18,15 @@ steps:
       inputs:
         arguments: --configuration ${{variables.buildConfiguration}}
         projects: ${{variables.solution}}
+        
+     ${{if eq('${{ variables.BuildtechBackend }}', 'Net') }}
+     
+    - task: DotNetCoreCLI@2
+      displayName: Test
+      inputs:
+       command: test
+       arguments: '--configuration $(BuildConfiguration)'
+       projects: '$(testsolution)'
     
     - task: DotNetCoreCLI@2
       displayName: Publish
