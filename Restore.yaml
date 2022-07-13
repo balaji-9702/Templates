@@ -1,7 +1,2 @@
 steps:
-    - checkout: self
-    - task: DotNetCoreCLI@2
-      displayName: Restore
-      inputs:
-        command: restore
-        projects: '$(solution)'
+ - script: "hi"
