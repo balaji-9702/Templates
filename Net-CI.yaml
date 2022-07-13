@@ -18,17 +18,10 @@ steps:
       inputs:
         arguments: --configuration ${{variables.buildConfiguration}}
         projects: ${{variables.solution}}
-        
-   - task: DotNetCoreCLI@2
-     displayName: Test
-     inputs:
-       command: test
-       arguments: '--configuration $(BuildConfiguration)'
-       projects: '$(testsolution)'
     
-  - task: DotNetCoreCLI@2
-    displayName: Publish
-    inputs:
+   - task: DotNetCoreCLI@2
+     displayName: Publish
+     inputs:
        command: publish
        publishWebProjects: True
        arguments: --configuration ${{variables.buildConfiguration}} --output $(build.artifactstagingdirectory)
