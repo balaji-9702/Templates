@@ -1,4 +1,4 @@
----
+
 steps:
 - task: VSBuild@1
   displayName: Build
