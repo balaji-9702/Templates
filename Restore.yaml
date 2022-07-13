@@ -1,10 +1,8 @@
 
-
-
 steps:
     - checkout: self
-      clean: true
-    - task: NuGetToolInstaller@1
-      displayName: Use NuGet
+    - task: DotNetCoreCLI@2
+      displayName: Restore
       inputs:
-        checkLatest: true
+        command: restore
+        projects: '$(solution)'
