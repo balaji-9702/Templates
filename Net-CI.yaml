@@ -18,16 +18,16 @@ steps:
       inputs:
         arguments: --configuration ${{variables.buildConfiguration}}
         projects: ${{variables.solution}} 
-   - task: DotNetCoreCLI@2
-     displayName: Publish
-     inputs:
+    - task: DotNetCoreCLI@2
+      displayName: Publish
+      inputs:
        command: publish
        publishWebProjects: True
        arguments: --configuration ${{variables.buildConfiguration}} --output $(build.artifactstagingdirectory)
        zipAfterPublish: True
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact'
-    inputs:
+   - task: PublishBuildArtifacts@1
+     displayName: 'Publish Artifact'
+     inputs:
        PathtoPublish: '$(build.artifactstagingdirectory)'
        ArtifactName: 'drop' 
        
