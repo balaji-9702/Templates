@@ -1,8 +1,7 @@
 
 steps:
-    - checkout: self
-    - task: DotNetCoreCLI@2
-      displayName: Restore
-      inputs:
-        command: restore
-        projects: '$(solution)'
+- task: VSBuild@1
+  displayName: Build
+  timeoutInMinutes: 120
+  inputs:
+    solution: '**\*.sln'
