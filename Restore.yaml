@@ -1,4 +1,4 @@
-
+steps:
 - ${{ if eq('${{ variables.unittest }}', 'true') }}
 - task: DotNetCoreCLI@2
   displayName: Restore
