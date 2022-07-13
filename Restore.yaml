@@ -1,3 +1,5 @@
+steps:
+- checkout: self
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
