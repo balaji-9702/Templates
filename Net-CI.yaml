@@ -19,25 +19,23 @@ steps:
         arguments: --configuration ${{variables.buildConfiguration}}
         projects: ${{variables.solution}}
         
-     ${{if eq('${{ variables.BuildtechBackend }}', 'Net') }}
-     
-    - task: DotNetCoreCLI@2
-      displayName: Test
-      inputs:
+   - task: DotNetCoreCLI@2
+     displayName: Test
+     inputs:
        command: test
        arguments: '--configuration $(BuildConfiguration)'
        projects: '$(testsolution)'
     
-    - task: DotNetCoreCLI@2
-      displayName: Publish
-      inputs:
+  - task: DotNetCoreCLI@2
+    displayName: Publish
+    inputs:
        command: publish
        publishWebProjects: True
        arguments: --configuration ${{variables.buildConfiguration}} --output $(build.artifactstagingdirectory)
        zipAfterPublish: True
-    - task: PublishBuildArtifacts@1
-      displayName: 'Publish Artifact'
-      inputs:
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact'
+    inputs:
        PathtoPublish: '$(build.artifactstagingdirectory)'
        ArtifactName: 'drop' 
        
