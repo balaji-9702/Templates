@@ -1,7 +1,7 @@
 steps:
-- task: DotNetCoreCLI@2
-  displayName: Restore
-  condition: eq('${{ variables.unittest }}', 'true')
-  inputs:
+- ${{ if eq('${{ variables.unittest }}', 'true') }}
+ - task: DotNetCoreCLI@2
+   displayName: Restore
+   inputs:
      command: restore
      projects: '${{ variables.solution }}'
